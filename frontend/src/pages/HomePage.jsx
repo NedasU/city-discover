@@ -6,6 +6,7 @@ export default function HomePage() {
         <div className="whole-container">
             <div className="descriptive-container">
                 <Navbar/>
+                <div className="descriptive-title">Find what to do</div>
             </div>
             <div className="interactive-container">
 
