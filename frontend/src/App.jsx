@@ -1,6 +1,10 @@
+import HomePage from "./pages/HomePage.jsx";
+
 
 function App() {
-  return <div>City Discover</div>;
+  return (
+    <HomePage/>
+  )
 }
 
 export default App
