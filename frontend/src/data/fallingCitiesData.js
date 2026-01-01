@@ -1,0 +1,17 @@
+export const cityNames = [
+    "Vilnius",
+    "Kaunas",
+    "Riga",
+    "Tallinn",
+    "Helsinki",
+    "Stockholm",
+    "Berlin",
+    "Copenhagen",
+    "Milan",
+    "Rome",
+    "Florence",
+    "Venice",
+    "Paris",
+    "London",
+    "Dublin",
+]

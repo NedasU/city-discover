@@ -1,24 +1,33 @@
-import { useState } from "react";
+import { cityNames } from "../data/fallingCitiesData";
 import "../styles/fallingCities.css";
 
-export default function FallingCities() {
-    const [cities, setCities] = useState([]);
+const random = (min, max) => Math.random() * (max - min) + min;
 
-    return (
-        <div className="falling-cities-layer">
-            {cities.map((city) => (
-                <span
-                    key={city.id}
-                    className={`falling-city ${city.direction}`}
-                    style={{ 
-                        left: city.x,
-                        top: city.y,
-                        transform: `rotate(${city.rotation}deg)`
-                    }}
-                >
-                {city.name}
-                </span>
-            ))}
-        </div>
-    );
+export default function FallingCities() {
+  const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+  let delayCount = 0;
+  return (
+    <div className="falling-cities-layer">
+      {cityNames.map((name, i) => {
+        const position = `${random(5, 90)}%`;
+        const rotation = random(-15, 15);
+
+        return (
+          <span
+            key={i}
+            className={`falling-city ${isDesktop ? "horizontal" : "vertical"}`}
+            style={{
+              left: isDesktop ? 0 : position,
+              top: isDesktop ? position : 0,
+              transform: `rotate(${rotation}deg)`,
+              animationDelay: `${random(delayCount++, 5+delayCount)}s`,
+              animationDuration: `${random(15, 35)}s`
+            }}
+          >
+            {name}
+          </span>
+        );
+      })}
+    </div>
+  );
 }
