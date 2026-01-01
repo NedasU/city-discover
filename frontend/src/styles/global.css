@@ -1,11 +1,3 @@
-.kaisei-tokumin-regular {
-  font-family: "Kaisei Tokumin", serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-
-
 * {
   margin: 0;
   padding: 0;
@@ -40,7 +32,9 @@ body {
   border-right: 1px solid rgb(191, 191, 191);
   padding: 1.3rem 0.75rem;
   font-size: 1.2rem;
-  font-family: kaisei-tokumin-regular;
+  font-family: "Kaisei Tokumin", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 .item:first-child{
   border-bottom-left-radius: 3rem;
@@ -62,24 +56,26 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  gap: 0;
+  background:#D8E1FD;
 }
 
 .descriptive-container {
   background: #D8E1FD;
-  flex: 7;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  padding: 2rem 2rem 0 2rem;
 }
 
 .interactive-container {
-  background: #FCF0CD;
-  flex: 3;
+  background: #D8E1FD;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0rem 2rem;
 }
 
 .descriptive-title {
@@ -93,6 +89,37 @@ body {
   padding-top: 2rem;
 }
 
+.descriptive-description {
+  padding-top: 0.75rem;
+  color: #284290;
+  font-size: 1.3rem;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  text-align: center;
+  border-bottom: 2px solid rgb(83, 83, 83);
+}
+
+.input-div {
+  padding:0.5rem 0.5rem;
+  background-color: #547BF0;
+  border-radius: 1rem;
+}
+
+.input-div input {
+  outline: none;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.5rem 0.5rem;
+}
+
+.input-div input::placeholder{
+  color: #D2CFC6;
+}
+
 
 @media (min-width: 768px) {
   .whole-container{
@@ -103,8 +130,18 @@ body {
   }
   .interactive-container{
     flex: 7;
+    background: #FCF0CD;
   }
   .item {
     font-size: 1.5rem;
+  }
+  .descriptive-title {
+    font-size: 5rem;
+    padding: 3rem 0.3rem;
+  }
+  .descriptive-description {
+    font-size: 2rem;
+    padding-top: 1.5rem;
+    border-bottom: 0;
   }
 }

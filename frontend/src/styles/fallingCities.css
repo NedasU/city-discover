@@ -1,0 +1,42 @@
+.falling-cities-layer {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.falling-city {
+    position: absolute;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+    user-select: none;
+}
+
+.falling-city.vertical {
+    animation: fallDown 6s linear forwards;
+}
+
+.falling-city.horizontal {
+    animation: moveRight 6s linear forwards;
+}
+
+@keyframes fallDown {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(110vh);
+    }
+}
+
+@keyframes moveRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(110vw);
+    }
+}
