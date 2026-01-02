@@ -148,4 +148,12 @@ body {
     padding-top: 1.5rem;
     border-bottom: 0;
   }
+  .input-div input {
+  outline: none;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 0.5rem;
+}
 }

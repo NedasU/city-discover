@@ -1,11 +1,12 @@
 import { cityNames } from "../data/fallingCitiesData";
 import "../styles/fallingCities.css";
+import { memo } from "react";
 
 const random = (min, max) => Math.random() * (max - min) + min;
 
-export default function FallingCities() {
+const FallingCities =  memo(function FallingCities() {
   const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-  const duration = isDesktop ? 18 : 24;
+  const duration = isDesktop ? 18 : 12;
   
   // Spread cities evenly across time to avoid clustering
   const totalCities = cityNames.length;
@@ -37,4 +38,6 @@ export default function FallingCities() {
       })}
     </div>
   );
-}
+});
+
+export default FallingCities;
