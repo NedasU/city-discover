@@ -10,34 +10,53 @@
     position: absolute;
     font-family: "Inter", sans-serif;
     font-weight: 700;
-    font-size: 2rem;
-    color: rgba(0, 0, 0, 0.15);
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.43);
     white-space: nowrap;
     user-select: none;
 }
 
 .falling-city.vertical {
-    animation: fallDown 6s linear forwards;
+    animation: fall-vertical linear infinite;
 }
 
 .falling-city.horizontal {
-    animation: moveRight 6s linear forwards;
+    animation: fall-horizontal linear infinite;
+    
 }
 
-@keyframes fallDown {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(110vh);
-    }
+@keyframes fall-vertical {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  25% { opacity: 0.5; }
+  50% { opacity: 1; }
+  75% { opacity: 0.5; }
+  90% { opacity: 0.3; }
+  to {
+    transform: translateY(45vh);
+    opacity: 0;
+  }
 }
 
-@keyframes moveRight {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(110vw);
+@keyframes fall-horizontal {
+  from {
+    transform: translateX(0) ;
+    opacity: 0;
+  }
+  25% { opacity: 0.5; }
+  50% { opacity: 1; }
+  75% { opacity: 0.5; }
+  90% { opacity: 0.3; }
+  to {
+    transform: translateX(70vw);
+    opacity: 0;
+  }
+}
+
+@media (min-width: 768px) {
+    .falling-city {
+        font-size: 2rem;
     }
 }
