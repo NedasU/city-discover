@@ -9,7 +9,7 @@ body {
 }
 
 .navbar-container{
-  width: 80%;
+  width: 90%;
   height: auto;
   display: flex;
   padding: 0;
@@ -47,7 +47,7 @@ body {
   border-right: 0;
 }
 
-.item-selected {
+.item-active {
     box-shadow: 0 6px 3px rgb(87, 87, 87);
     background-color: #C1CFF5;
 }
@@ -57,7 +57,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0;
-  background:#D8E1FD;
+  background:transparent;
 }
 
 .descriptive-container {
@@ -109,6 +109,7 @@ body {
   background-color: #547BF0;
   border-radius: 1rem;
   z-index: 29;
+  box-shadow: 0 4px 3px rgb(87, 87, 87);
 }
 
 .input-div input {
@@ -124,6 +125,209 @@ body {
   color: #D2CFC6;
 }
 
+
+.discovery-page .descriptive-container {
+    background-color: #FCF0CD;
+  }
+.discovery-page .interactive-container {
+    background: #FCF0CD;
+    justify-content: flex-start;
+}
+
+.discovery-info-div {
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Judson", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.5rem;;
+  text-align: center;
+}
+
+
+
+.discovery-title {
+  text-align: center;
+  color: black;
+  font-size: 2.5rem;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: bold;
+  padding: 4rem 0rem;
+  color: #3B66E7;
+}
+
+.discovery-title span {
+  text-decoration: underline rgba(0, 0, 0, 0.5);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.discovery-sub-title {
+  font-family: "Judson", serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.5rem;
+  padding-bottom: 0rem;
+}
+
+.discovery-instruction {
+  font-size: 0.6rem;
+}
+
+.discovery-arrows {
+  width: 1rem;
+  height: auto;
+  object-fit: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+
+}
+
+.discovery-arrows img{
+  max-width: 100%;
+  object-fit: contain;
+  height: auto;
+}
+
+.interactive-container.no-padding {
+  padding: 0;
+}
+
+.Card-holder-div {
+  display: flex;
+  flex: 1;
+  gap: 0.5rem;
+  width:100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 7rem;
+}
+
+.un-inter-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  font-size: 1rem;
+  text-wrap: wrap;
+  font-family: "Judson", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.cards-div {
+  position: relative;
+  display: block;
+  flex: 2;
+  width: 100%;
+  height: 13rem; /* matches .Card height (12.75rem) plus a small gap */
+}
+
+/* Position individual cards on top of each other */
+.cards-div .Card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(3deg);
+  margin: 0;
+  width: 85%;
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+.cards-div .Card:nth-child(1) {
+  z-index: 3;
+  transform: translateX(-50%) rotate(3deg);
+  pointer-events: auto;
+}
+.cards-div .Card:nth-child(2) {
+  z-index: 2;
+  transform: translateX(-50%) rotate(6deg);
+}
+.cards-div .Card:nth-child(3) {
+  z-index: 1;
+  transform: translateX(-50%) rotate(10deg);
+}
+.interested-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  font-size: 1rem;
+  text-wrap: wrap;
+  font-family: "Judson", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.Card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 85%;
+  height: 12.75rem;
+  background-color: black;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 1rem;
+  position: relative;
+  border: 5px solid white;
+  transform: rotate(3deg);
+  
+}
+.Card-image {
+  max-width:100%;
+  height: auto;
+  object-fit: cover;
+  display: flex;
+  flex: 7;
+}
+
+.Card-title {
+  color: black;
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 0.5rem 0.5rem;
+  flex: 1;
+  position: absolute;
+  bottom: 4px;
+  text-wrap: wrap;
+  width: 100%;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: bold;
+  -webkit-text-fill-color: black;
+  -webkit-text-stroke-width: 0.6px;
+  -webkit-text-stroke-color: white;
+}
+
+.int-logo-div {
+  height: 3.5rem;
+  width: 3.5rem;
+  border: 1px solid grey;
+  border-radius: 2rem;
+  overflow: hidden;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:0.5rem;
+}
+
+.int-logo-div img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
 
 @media (min-width: 768px) {
   .whole-container{
@@ -145,7 +349,7 @@ body {
   }
   .descriptive-description {
     font-size: 2rem;
-    padding-top: 1.5rem;
+    padding-top: 1rem;
     border-bottom: 0;
   }
   .input-div input {
@@ -155,5 +359,30 @@ body {
   color: white;
   font-size: 2rem;
   padding: 0.5rem 0.5rem;
+  }
+  .discovery-title {
+   font-size: 4rem;
+   padding-top: 4rem;
+   padding-bottom: 1rem ;
+}
+
+.discovery-sub-title {
+
+}
+
+.discovery-instruction {
+  font-size: 1rem;
+}
+
+.discovery-arrows {
+  font-size: 1rem;
+}
+.discovery-page {
+  .descriptive-container {
+    background-color: #D8E1FD;
+  }
+  .interactive-container {
+    background: #FCF0CD;
+  }
 }
 }
