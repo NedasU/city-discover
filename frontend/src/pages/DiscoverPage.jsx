@@ -12,6 +12,9 @@ export default function DiscoverPage({ activeNav, setActiveNav }) {
                 <div className="discovery-title">
                     Things to do in <span>Kaunas</span>
                 </div>
+                <div className="desktop-only explanation">
+                    Find out whats interesting in Kaunas by swiping left or right
+                </div>
             </div>
             <div className="interactive-container no-padding">
                 <div className="discovery-info-div">

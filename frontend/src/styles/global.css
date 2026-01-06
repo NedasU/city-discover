@@ -150,20 +150,43 @@ body {
 
 .discovery-title {
   text-align: center;
-  color: black;
   font-size: 2.5rem;
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 900;
-  font-style: bold;
+  font-style: normal;
   padding: 4rem 0rem;
   color: #3B66E7;
+}
+
+.desktop-only {
+  display: none;
+}
+
+
+.explanation {
+  color: #3B4F8E;
+  text-align: center;
+  font-size: 2rem;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
 .discovery-title span {
   text-decoration: underline rgba(0, 0, 0, 0.5);
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
+  transition: all 0.3s ease-in-out;
+}
+
+.discovery-title span:hover {
+  text-decoration-thickness: 2px;
+  font-size: 3rem;
+  color: #2551d2;
+  transition: all 0.3s ease-in-out;
+
 }
 
 .discovery-sub-title {
@@ -236,7 +259,7 @@ body {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX(-50%) rotate(3deg);
+  transform: translateX(-50%) rotate(10deg);
   margin: 0;
   width: 85%;
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.3);
@@ -339,6 +362,7 @@ body {
   .interactive-container{
     flex: 7;
     background: #FCF0CD;
+
   }
   .item {
     font-size: 1.5rem;
@@ -361,28 +385,78 @@ body {
   padding: 0.5rem 0.5rem;
   }
   .discovery-title {
-   font-size: 4rem;
+   font-size: 5rem;
    padding-top: 4rem;
-   padding-bottom: 1rem ;
-}
-
-.discovery-sub-title {
-
-}
-
-.discovery-instruction {
-  font-size: 1rem;
-}
-
-.discovery-arrows {
-  font-size: 1rem;
-}
-.discovery-page {
-  .descriptive-container {
-    background-color: #D8E1FD;
+   padding-bottom: 2rem;
+   line-height: 1.2;
   }
-  .interactive-container {
+
+  .desktop-only {
+    display: block;
+  }
+
+  .discovery-info-div {
+    justify-content: center;
+    align-items: center;
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+  }
+
+  .discovery-sub-title {
+    font-size: 3rem;
+  }
+
+  .discovery-instruction {
+    font-size: 1.2rem;
+  }
+
+  .discovery-arrows {
+    width: 2rem;
+  }
+  .discovery-page .descriptive-container {
+      background-color: #D8E1FD;
+    }
+  .discovery-page .interactive-container {
     background: #FCF0CD;
   }
-}
+  .interested-div {
+    font-size: 2rem;
+    padding-top: 2rem;
+  }
+
+  .un-inter-div {
+    font-size: 2rem;
+    padding-top: 2rem;
+  }
+  .int-logo-div {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 4rem;
+    padding: 1rem;
+  }
+
+  .Card {
+    max-width: 16.75rem;
+    height: 21.5rem;
+  }
+
+  .cards-div {
+    height: 22rem;
+    width: 17rem;
+  }
+
+  .Card-title {
+    font-size: 1.5rem;
+  }
+
+  .Card-holder-div {
+    margin-bottom: 0rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 6rem;
+  }
+
+  .discovery-title span:hover {
+    font-size: 6rem;
+  }
 }
