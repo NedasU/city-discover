@@ -8,7 +8,7 @@ export default function DiscoverPage({ activeNav, setActiveNav }) {
     return (
         <div className="whole-container discovery-page">
             <div className="descriptive-container">
-                <Navbar activeNav={activeNav} setActiveNav={setActiveNav} />
+                <Navbar/>
                 <div className="discovery-title">
                     Things to do in <span>Kaunas</span>
                 </div>

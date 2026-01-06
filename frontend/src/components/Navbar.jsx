@@ -1,26 +1,12 @@
 import "../styles/global.css";
+import { NavLink } from "react-router-dom";
 
-export default function Navbar({ activeNav, setActiveNav }) {
+export default function Navbar() {
   return (
     <div className="navbar-container">
-      <div
-        className={`item ${activeNav === "Home" ? "item-active" : ""}`}
-        onClick={() => setActiveNav("Home")}
-      >
-        Home
-      </div>
-      <div
-        className={`item ${activeNav === "Discover" ? "item-active" : ""}`}
-        onClick={() => setActiveNav("Discover")}
-      >
-        Discover
-      </div>
-      <div
-        className={`item ${activeNav === "Map" ? "item-active" : ""}`}
-        onClick={() => setActiveNav("Map")}
-      >
-        Map
-      </div>
+        <NavLink className={({isActive}) => isActive ? "item item-active" : "item"} to="/" end>Home</NavLink>
+        <NavLink className={({isActive}) => isActive ? "item item-active" : "item"} to="/discover">Discover</NavLink>
+        <NavLink className={({isActive}) => isActive ? "item item-active" : "item"} to="/map">Map</NavLink>
     </div>
   );
 }

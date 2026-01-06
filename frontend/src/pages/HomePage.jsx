@@ -7,7 +7,7 @@ export default function HomePage( {searchQuery, setSearchQuery, activeNav, setAc
     return(
         <div className="whole-container">
             <div className="descriptive-container">
-                <Navbar activeNav={activeNav} setActiveNav={setActiveNav}/>
+                <Navbar/>
                 <div className="descriptive-title">Find what to do</div>
                 <div className="descriptive-description">
                     Looking for something to do? Exploring a Prison? Climbing a mountain? Let us help you find it!
