@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar.jsx"
 import InputBar from "../components/InputBar.jsx"
 import FallingCities from "../components/FallingCities.jsx"
 
-export default function HomePage( {searchQuery, setSearchQuery, activeNav, setActiveNav} ) {
+export default function HomePage( {searchQuery, setSearchQuery} ) {
     return(
         <div className="whole-container">
             <div className="descriptive-container">
