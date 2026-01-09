@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar.jsx"
 import InputBar from "../components/InputBar.jsx"
 import FallingCities from "../components/FallingCities.jsx"
 
-export default function HomePage( {searchQuery, setSearchQuery} ) {
+export default function HomePage( {searchQuery, setSearchQuery, isDesktop} ) {
     return(
         <div className="whole-container">
             <div className="descriptive-container">
@@ -15,7 +15,7 @@ export default function HomePage( {searchQuery, setSearchQuery} ) {
             </div>
             <div className="interactive-container">
                 <InputBar SearchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
-                <FallingCities/>
+                <FallingCities isDesktop={isDesktop}/>
             </div>
         </div>
     );

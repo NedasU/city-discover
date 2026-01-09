@@ -4,8 +4,7 @@ import { memo } from "react";
 
 const random = (min, max) => Math.random() * (max - min) + min;
 
-const FallingCities =  memo(function FallingCities() {
-  const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+const FallingCities =  memo(function FallingCities({ isDesktop }) {
   const duration = isDesktop ? 18 : 12;
   
   // Spread cities evenly across time to avoid clustering
