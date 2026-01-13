@@ -402,6 +402,8 @@ body {
   transition: height 1s ease-in-out;
   scrollbar-width: none;
   padding: 0 1rem;
+  border: 1px solid rgb(166, 173, 249);
+  z-index: 11;
 }
 
 
