@@ -4,7 +4,7 @@ import InputBar from "../components/InputBar.jsx"
 import FallingCities from "../components/FallingCities.jsx"
 import { useState } from "react";
 
-export default function HomePage( {setPlaces, setCityInfo, isDesktop} ) {
+export default function HomePage( {setPoiPlaces, setCityInfo, isDesktop} ) {
     const [ searchQuery, setSearchQuery ] = useState("");
     const [ errorState, setErrorState ] = useState(null);
     const [ loading, setLoading ] = useState(false);
@@ -23,7 +23,7 @@ export default function HomePage( {setPlaces, setCityInfo, isDesktop} ) {
 
         const places_response = await fetch(`http://localhost:5000/api/places?city_id=${encodeURIComponent(cityData.place_id)}`);
         const placesData = await places_response.json();
-        setPlaces(placesData);
+        setPoiPlaces(placesData);
 
         } catch (err){
             setErrorState("Something went wrong!");

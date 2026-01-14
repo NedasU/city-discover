@@ -3,7 +3,7 @@ import Card from "./Card.jsx";
 import heartIcon from "../images/heart.png";
 import rejectIcon from "../images/reject.png";
 
-export default function CardSwiper() {
+export default function CardSwiper({ poiPlaces }) {
     return (
         <div className="Card-holder-div">
             <div className="un-inter-div">
@@ -13,9 +13,12 @@ export default function CardSwiper() {
                 Scrap It
             </div>
             <div className="cards-div">
-                <Card title="Kaunas Castle" imgSrc="https://upload.wikimedia.org/wikipedia/commons/6/68/Kaunas_castle_20160603.jpg"/>
-                <Card title="Kaunas Castle" imgSrc="https://upload.wikimedia.org/wikipedia/commons/6/68/Kaunas_castle_20160603.jpg"/>
-                <Card title="Kaunas Castle" imgSrc="https://upload.wikimedia.org/wikipedia/commons/6/68/Kaunas_castle_20160603.jpg"/>
+                {poiPlaces.places.map((place) => (
+                    <Card 
+                    title={place.name} 
+                    imgSrc={place.img_src === "/images/placeholder.jpg" ? "http://localhost:5000/images/placeholder.jpg": place.img_src} 
+                    key={place.place_id}/>
+                ))};
             </div>
             <div className="interested-div">
                 <div className="int-logo-div">

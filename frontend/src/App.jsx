@@ -6,13 +6,13 @@ import { useState } from "react";
 
 function App() {
   const [cityInfo, setCityInfo] = useState(null);
-  const [places, setPlaces] = useState([]);
+  const [poiPlaces, setPoiPlaces] = useState([]);
   const isDesktop = window.matchMedia("(min-width: 768px)").matches;
   return (
     <Routes>
-      <Route path="/" element={<HomePage setPlaces={setPlaces} setCityInfo={setCityInfo} isDesktop={isDesktop}/>} />
-      <Route path="/discover" element={<DiscoveryPage/>} />
-      <Route path="/map" element={<MapPage isDesktop={isDesktop}/>}/>
+      <Route path="/" element={<HomePage setPoiPlaces={setPoiPlaces} setCityInfo={setCityInfo} isDesktop={isDesktop}/>} />
+      <Route path="/discover" element={<DiscoveryPage poiPlaces={poiPlaces} cityInfo={cityInfo}/>} />
+      <Route path="/map" element={<MapPage poiPlaces={poiPlaces} cityInfo={cityInfo} isDesktop={isDesktop}/>}/>
     </Routes>
   )
 }
