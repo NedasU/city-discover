@@ -5,14 +5,14 @@ import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 function App() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [LocationPoIs, setLocationPoIs] = useState([]);
+  const [cityInfo, setCityInfo] = useState(null);
+  const [places, setPlaces] = useState([]);
   const isDesktop = window.matchMedia("(min-width: 768px)").matches;
   return (
     <Routes>
-      <Route path="/" element={<HomePage searchQuery={searchQuery} setSearchQuery={setSearchQuery} isDesktop={isDesktop}/>} />
-      <Route path="/discover" element={<DiscoveryPage searchQuery={searchQuery} LocationPoIs={LocationPoIs} setLocationPoIs={setLocationPoIs}/>} />
-      <Route path="/map" element={<MapPage searchQuery={searchQuery} setSearchQuery={setSearchQuery} LocationPoIs={LocationPoIs} setLocationPoIs={setLocationPoIs} isDesktop={isDesktop}/>}/>
+      <Route path="/" element={<HomePage setPlaces={setPlaces} setCityInfo={setCityInfo} isDesktop={isDesktop}/>} />
+      <Route path="/discover" element={<DiscoveryPage/>} />
+      <Route path="/map" element={<MapPage isDesktop={isDesktop}/>}/>
     </Routes>
   )
 }
