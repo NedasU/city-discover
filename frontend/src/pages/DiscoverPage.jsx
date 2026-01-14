@@ -3,15 +3,16 @@ import Navbar from "../components/Navbar.jsx";
 import CardSwiper from "../components/CardSwiper.jsx";
 import arrowLeft from "../images/arrow_left.png";
 import arrowRight from "../images/arrow_right.png";
+import { NavLink } from "react-router-dom";
 
 export default function DiscoverPage({ poiPlaces, cityInfo }) {
-    const cityName = cityInfo?.city ?? "Kaunas"; // Defaulting value to Kaunas, eventually set it to geolocation of user based on permissions.
+    const cityName = cityInfo?.city ?? "????"; // Defaulting value to Kaunas, eventually set it to geolocation of user based on permissions.
     return (
         <div className="whole-container discovery-page">
             <div className="descriptive-container">
                 <Navbar/>
                 <div className="discovery-title">
-                    Things to do in <span>{cityName}</span>
+                    Things to do in <NavLink to="/"><span>{cityName}</span></NavLink>
                 </div>
                 <div className="desktop-only explanation">
                     Find out whats interesting in {cityName} by swiping left or right

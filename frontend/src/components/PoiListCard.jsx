@@ -1,14 +1,20 @@
 import "../styles/global.css";
 
-export default function PoiListCard() {
+export default function PoiListCard( {imgSrc, title, address} ) {
     return (
         <div className="poi-card">
             <div className="poi-img-div">
-                <img className="poi-img" src="https://upload.wikimedia.org/wikipedia/commons/6/68/Kaunas_castle_20160603.jpg" alt="temp-alt" />
+                <img className="poi-img" 
+                src={imgSrc} 
+                onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = "http://localhost:5000/images/placeholder.jpg";
+                }}
+                alt={title} />
             </div>
             <div className="poi-desc">
-                <h2 className="poi-title">Kaunas</h2>
-                <p className="poi-address">Pilies g. 17, Kaunas, 44275 Kauno m. sav.</p>
+                <h2 className="poi-title">{title}</h2>
+                <p className="poi-address">{address}</p>
             </div>
         </div>
     );

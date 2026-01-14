@@ -3,7 +3,10 @@ import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import "../styles/global.css";
 
-export default function CityMap({ isDesktop }) {
+export default function CityMap({ 
+   isDesktop,
+   lat=54.90031135382936, //Defaulting to Kaunas for now
+   lon=23.901360471320128 }) {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
 
@@ -16,7 +19,7 @@ export default function CityMap({ isDesktop }) {
       style: `https://maps.geoapify.com/v1/styles/osm-bright/style.json?apiKey=${
         import.meta.env.VITE_GEOAPIFY_KEY
       }`,
-      center: [23.901360471320128, 54.90031135382936], // Kaunas
+      center: [lon, lat],
       zoom: isDesktop ? 12 : 11,
     });
 
@@ -42,6 +45,5 @@ export default function CityMap({ isDesktop }) {
       mapRef.current = null;
     };
   }, []);
-
   return <div ref={mapContainerRef} className="city-map" />;
 }
