@@ -1,6 +1,6 @@
 import "../styles/global.css";
 
-export default function InputBar({ searchQuery, setSearchQuery, handleSubmit, disabled }) {
+export default function InputBar({ searchQuery, handleSubmit, disabled, handleSearchChange }) {
     const HandleKeyDown = (e) => {
         if (e.key === "Enter"){
             handleSubmit();
@@ -13,7 +13,7 @@ export default function InputBar({ searchQuery, setSearchQuery, handleSubmit, di
             disabled={disabled}
             type="text"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => handleSearchChange(e.target.value)}
             onKeyDown={HandleKeyDown}
             placeholder="Enter a city" 
             />

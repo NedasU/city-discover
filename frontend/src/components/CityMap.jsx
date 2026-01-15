@@ -4,12 +4,10 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import "../styles/global.css";
 import { CityContext } from "../context/cityContext";
 
-export default function CityMap() {
+export default function CityMap( { lon, lat } ) {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
-  const { isDesktop, cityInfo } = useContext(CityContext);
-  const lat = cityInfo?.lat ?? 54.90031135382936;
-  const lon = cityInfo?.lon ?? 23.901360471320128;
+  const { isDesktop } = useContext(CityContext);
 
   useEffect(() => {
     if (mapRef.current) return; // prevent re-init (important)

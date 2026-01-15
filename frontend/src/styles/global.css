@@ -87,6 +87,22 @@ body {
   overflow: hidden;
 }
 
+.interactive-container .error-msg {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  text-align: center;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: white;
+  border: 1px solid rgb(213, 213, 213);
+  border-radius: 1rem;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgb(190, 0, 0);
+  z-index: 10;
+}
+
 .descriptive-title {
   color: #3B66E7;
   font-size: 4rem;

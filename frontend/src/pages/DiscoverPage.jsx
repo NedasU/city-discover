@@ -9,7 +9,8 @@ import { CityContext } from "../context/cityContext.jsx";
 
 export default function DiscoverPage() {
     const {cityInfo} = useContext(CityContext);
-    const cityName = cityInfo?.city ?? "????"; // Defaulting value to Kaunas, eventually set it to geolocation of user based on permissions.
+    const cityName = cityInfo?.city ?? "Kaunas"; // Defaulting value to Kaunas, eventually set it to geolocation of user based on permissions.
+
     return (
         <div className="whole-container discovery-page">
             <div className="descriptive-container">

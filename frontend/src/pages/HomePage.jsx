@@ -5,27 +5,43 @@ import FallingCities from "../components/FallingCities.jsx"
 import { useState } from "react";
 import { useContext } from "react";
 import { CityContext } from "../context/cityContext.jsx";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function HomePage() {
     const [ searchQuery, setSearchQuery ] = useState("");
     const [ errorState, setErrorState ] = useState(null);
     const [ loading, setLoading ] = useState(false);
     const {setPoiPlaces, setCityInfo} = useContext(CityContext);
+    const location = useLocation();
+    const [ redirectError, setRedirectError ] = useState(location.state?.error ?? null);
+    const navigate = useNavigate();
+
+    const handleSearchChange = (value) => {
+        if (redirectError) setRedirectError(null);
+        setSearchQuery(value);
+    }
 
     const handleSubmit = async () => {
-        if (!searchQuery.trim()){
+        if (!searchQuery.trim()) {
             return setErrorState("Please type a City!");
         }
         try {
-        setLoading(true);
-        setErrorState(null);
-        const response =  await fetch(`http://localhost:5000/api/geocode?city=${encodeURIComponent(searchQuery)}`);
-        const cityData = await response.json();
-        setCityInfo(cityData);
+            setRedirectError(null);
+            setLoading(true);
+            setErrorState(null);
+            const response =  await fetch(`http://localhost:5000/api/geocode?city=${encodeURIComponent(searchQuery)}`);
+            if (!response.ok) throw new Error("An error occured whilst getting Data!");
 
-        const places_response = await fetch(`http://localhost:5000/api/places?city_id=${encodeURIComponent(cityData.place_id)}`);
-        const placesData = await places_response.json();
-        setPoiPlaces(placesData);
+            const cityData = await response.json();
+            setCityInfo(cityData);
+
+            const places_response = await fetch(`http://localhost:5000/api/places?city_id=${encodeURIComponent(cityData.place_id)}`);
+            if (!places_response.ok) throw new Error("An error occured whilst getting data for places!");
+
+            const placesData = await places_response.json();
+            setPoiPlaces(placesData);
+
+            navigate("/discover");
 
         } catch (err){
             setErrorState("Something went wrong!");
@@ -44,9 +60,17 @@ export default function HomePage() {
                 </div>
             </div>
             <div className="interactive-container">
-                <InputBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} handleSubmit={handleSubmit} disabled={loading} />
+                { redirectError && (
+                    <p className="error-msg">{redirectError}</p>
+                )}
+                <InputBar 
+                    searchQuery={searchQuery} 
+                    handleSubmit={handleSubmit} 
+                    disabled={loading} 
+                    handleSearchChange={handleSearchChange}
+                />
                 {errorState && (
-                    <p>{errorState}</p>
+                    <p className="error-msg">{errorState}</p>
                 )}
                 {loading && (
                 <div className="loading-wrapper">
