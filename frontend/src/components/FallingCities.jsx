@@ -1,10 +1,13 @@
+import { useContext } from "react";
+import { CityContext } from "../context/cityContext";
 import { cityNames } from "../data/fallingCitiesData";
 import "../styles/fallingCities.css";
 import { memo } from "react";
 
 const random = (min, max) => Math.random() * (max - min) + min;
 
-const FallingCities =  memo(function FallingCities({ isDesktop }) {
+const FallingCities =  memo(function FallingCities() {
+  const {isDesktop} = useContext(CityContext);
   const duration = isDesktop ? 18 : 12;
   
   // Spread cities evenly across time to avoid clustering

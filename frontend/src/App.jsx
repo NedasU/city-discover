@@ -3,17 +3,20 @@ import DiscoveryPage from "./pages/DiscoverPage.jsx";
 import MapPage from "./pages/MapPage.jsx";
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import { CityContext } from "./context/cityContext.jsx";
 
 function App() {
   const [cityInfo, setCityInfo] = useState(null);
-  const [poiPlaces, setPoiPlaces] = useState([]);
+  const [poiPlaces, setPoiPlaces] = useState({places : []});
   const isDesktop = window.matchMedia("(min-width: 768px)").matches;
   return (
-    <Routes>
-      <Route path="/" element={<HomePage setPoiPlaces={setPoiPlaces} setCityInfo={setCityInfo} isDesktop={isDesktop}/>} />
-      <Route path="/discover" element={<DiscoveryPage poiPlaces={poiPlaces} cityInfo={cityInfo}/>} />
-      <Route path="/map" element={<MapPage poiPlaces={poiPlaces} cityInfo={cityInfo} isDesktop={isDesktop}/>}/>
-    </Routes>
+    <CityContext.Provider value={{ cityInfo, setCityInfo, poiPlaces, setPoiPlaces, isDesktop }}>
+      <Routes>
+        <Route path="/" element={<HomePage/>} />
+        <Route path="/discover" element={<DiscoveryPage/>} />
+        <Route path="/map" element={<MapPage/>}/>
+      </Routes>
+    </CityContext.Provider>
   )
 }
 

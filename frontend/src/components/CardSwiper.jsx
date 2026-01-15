@@ -2,8 +2,11 @@ import "../styles/global.css";
 import Card from "./Card.jsx";
 import heartIcon from "../images/heart.png";
 import rejectIcon from "../images/reject.png";
+import { CityContext } from "../context/cityContext.jsx";
+import { useContext } from "react";
 
-export default function CardSwiper({ poiPlaces : {places = []} = {} }) {
+export default function CardSwiper() {
+    const {poiPlaces} = useContext(CityContext);
     return (
         <div className="Card-holder-div">
             <div className="un-inter-div">
@@ -13,7 +16,7 @@ export default function CardSwiper({ poiPlaces : {places = []} = {} }) {
                 Scrap It
             </div>
             <div className="cards-div">
-                {places.map((place) => (
+                {poiPlaces.places.map((place) => (
                     <Card 
                     title={place.name} 
                     imgSrc={place.img_src === "/images/placeholder.jpg" ? "http://localhost:5000/images/placeholder.jpg": place.img_src} 

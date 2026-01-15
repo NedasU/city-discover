@@ -4,8 +4,11 @@ import CardSwiper from "../components/CardSwiper.jsx";
 import arrowLeft from "../images/arrow_left.png";
 import arrowRight from "../images/arrow_right.png";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { CityContext } from "../context/cityContext.jsx";
 
-export default function DiscoverPage({ poiPlaces, cityInfo }) {
+export default function DiscoverPage() {
+    const {cityInfo} = useContext(CityContext);
     const cityName = cityInfo?.city ?? "????"; // Defaulting value to Kaunas, eventually set it to geolocation of user based on permissions.
     return (
         <div className="whole-container discovery-page">
@@ -31,7 +34,7 @@ export default function DiscoverPage({ poiPlaces, cityInfo }) {
                         <img src={arrowRight} alt="right arrow" />
                     </div>
                 </div>
-                <CardSwiper poiPlaces={poiPlaces}/>
+                <CardSwiper/>
             </div>
         </div>
     );

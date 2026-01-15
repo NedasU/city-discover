@@ -1,14 +1,15 @@
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import "../styles/global.css";
+import { CityContext } from "../context/cityContext";
 
-export default function CityMap({ 
-   isDesktop,
-   lat=54.90031135382936, //Defaulting to Kaunas for now
-   lon=23.901360471320128 }) {
+export default function CityMap() {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
+  const { isDesktop, cityInfo } = useContext(CityContext);
+  const lat = cityInfo?.lat ?? 54.90031135382936;
+  const lon = cityInfo?.lon ?? 23.901360471320128;
 
   useEffect(() => {
     if (mapRef.current) return; // prevent re-init (important)

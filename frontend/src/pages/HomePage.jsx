@@ -3,16 +3,18 @@ import Navbar from "../components/Navbar.jsx"
 import InputBar from "../components/InputBar.jsx"
 import FallingCities from "../components/FallingCities.jsx"
 import { useState } from "react";
+import { useContext } from "react";
+import { CityContext } from "../context/cityContext.jsx";
 
-export default function HomePage( {setPoiPlaces, setCityInfo, isDesktop} ) {
+export default function HomePage() {
     const [ searchQuery, setSearchQuery ] = useState("");
     const [ errorState, setErrorState ] = useState(null);
     const [ loading, setLoading ] = useState(false);
+    const {setPoiPlaces, setCityInfo} = useContext(CityContext);
 
     const handleSubmit = async () => {
         if (!searchQuery.trim()){
             return setErrorState("Please type a City!");
-            
         }
         try {
         setLoading(true);
@@ -55,7 +57,7 @@ export default function HomePage( {setPoiPlaces, setCityInfo, isDesktop} ) {
                     <p>Finding places...</p>
                 </div>
                 )}
-                <FallingCities isDesktop={isDesktop}/>
+                <FallingCities/>
             </div>
         </div>
     );
