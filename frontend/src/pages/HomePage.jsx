@@ -34,8 +34,8 @@ export default function HomePage() {
 
             const cityData = await response.json();
             setCityInfo(cityData);
-
-            const places_response = await fetch(`http://localhost:5000/api/places?city_id=${encodeURIComponent(cityData.place_id)}`);
+            
+            const places_response = await fetch(`http://localhost:5000/api/places?bbox=${encodeURIComponent(cityData.bbox)}`);
             if (!places_response.ok) throw new Error("An error occured whilst getting data for places!");
 
             const placesData = await places_response.json();

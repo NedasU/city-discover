@@ -62,13 +62,13 @@ app.get("/api/geocode", async (req, res) => {
 });
 
 app.get("/api/places", async (req, res) => {
-    const { city_id, category = "tourism", limit = 40, offset = 0 } = req.query;
+    const { bbox, category = "tourism", limit = 40, offset = 0 } = req.query;
 
-    if (!city_id){
-        return res.status(400).json({ error: "Invalid place id!" })
+    if (!bbox){
+        return res.status(400).json({ error: "Invalid place!" })
     }
     try {
-        const response = await fetch(`https://api.geoapify.com/v2/places?categories=${category}&filter=place:${city_id}&limit=${limit}&apiKey=${process.env.GEOAPIFY_KEY}&offset=${offset}`)
+        const response = await fetch(`https://api.geoapify.com/v2/places?categories=${category}&filter=rect:${bbox}&limit=${limit}&apiKey=${process.env.GEOAPIFY_KEY}&offset=${offset}`)
 
         if (!response.ok) {
             return res.status(400).json({ error: "Didnt find any places!" })

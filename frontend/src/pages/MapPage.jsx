@@ -6,9 +6,8 @@ import { useContext } from "react";
 import { CityContext } from "../context/cityContext.jsx";
 
 export default function() {
-    const {isDesktop, cityInfo} = useContext(CityContext);
-    const lat = cityInfo?.lat ?? 54.90031135382936;
-    const lon = cityInfo?.lon ?? 23.901360471320128; //Default to kaunas coordinates (temp)
+    const { isDesktop } = useContext(CityContext);
+
 
     return (
         <div className="whole-container map-page-container">
@@ -19,7 +18,7 @@ export default function() {
             </div>
             <div className="interactive-container">
                 <div className="map-container">
-                    <CityMap lon={lon} lat={lat}/>
+                    <CityMap/>
                 </div>
                 { !isDesktop && <ListContainer/> }
             </div>
