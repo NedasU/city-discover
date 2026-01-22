@@ -9,9 +9,11 @@ import { CityContext } from "./context/cityContext.jsx";
 function App() {
   const [cityInfo, setCityInfo] = useState(null);
   const [poiPlaces, setPoiPlaces] = useState({places : []});
+  const [likedPois, setLikedPois] = useState([]);
+  const [index, setIndex] = useState(0);
   const isDesktop = window.matchMedia("(min-width: 768px)").matches;
   return (
-    <CityContext.Provider value={{ cityInfo, setCityInfo, poiPlaces, setPoiPlaces, isDesktop }}>
+    <CityContext.Provider value={{ cityInfo, setCityInfo, poiPlaces, setPoiPlaces, likedPois, setLikedPois, index, setIndex, isDesktop }}>
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/discover" element={
