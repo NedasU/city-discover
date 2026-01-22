@@ -3,12 +3,12 @@ import Card from "./Card.jsx";
 import heartIcon from "../images/heart.png";
 import rejectIcon from "../images/reject.png";
 import { CityContext } from "../context/cityContext.jsx";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { motion } from "framer-motion";
 import {useNavigate} from "react-router-dom";
 
 export default function CardSwiper() {
-    const {poiPlaces, isDesktop, likedPois, setLikedPois, index, setIndex} = useContext(CityContext);
+    const {poiPlaces, isDesktop, setLikedPois, index, setIndex} = useContext(CityContext);
     const navigate = useNavigate();
     const places = poiPlaces.places;
 
@@ -27,11 +27,6 @@ export default function CardSwiper() {
 
         setIndex((prev) => prev + 1);
     };
-
-    useEffect(() => {
-        console.log("Liked POIs:", likedPois);
-    }, [likedPois]);
-
 
 
     if (index >= places.length && places.length > 0) {

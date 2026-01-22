@@ -8,10 +8,12 @@ import { CityContext } from "../context/cityContext.jsx";
 import { useLocation, useNavigate } from "react-router-dom";
 
 export default function HomePage() {
-    const [ searchQuery, setSearchQuery ] = useState("");
+    const {setPoiPlaces, setCityInfo, setIndex, setLikedPois, cityInfo} = useContext(CityContext);
+
+    const [ searchQuery, setSearchQuery ] = useState(cityInfo?.city || "");
     const [ errorState, setErrorState ] = useState(null);
     const [ loading, setLoading ] = useState(false);
-    const {setPoiPlaces, setCityInfo} = useContext(CityContext);
+
     const location = useLocation();
     const [ redirectError, setRedirectError ] = useState(location.state?.error ?? null);
     const navigate = useNavigate();
@@ -40,6 +42,9 @@ export default function HomePage() {
 
             const placesData = await places_response.json();
             setPoiPlaces(placesData);
+
+            setIndex(0);
+            setLikedPois([]);
 
             navigate("/discover");
 

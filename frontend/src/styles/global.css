@@ -425,10 +425,11 @@ input.disabled {
 }
 
 .card-endpoint-msg button:hover {
-  border-bottom: 1.5px solid rgb(11, 68, 181);
+  border-bottom: 1.5px solid grey;
+  color: grey;
   padding-bottom: 1rem;
-  font-size: 3rem;
-  transition: all 0.5s ease-in-out;
+  scale: 1.2;
+  transition: all 0.3s ease-in-out;
 }
 
 .map-title {
@@ -550,6 +551,45 @@ input.disabled {
   height: 100%;
   border-radius: 1rem;
   overflow: hidden;
+}
+
+.map-card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-family: "Kaisei Tokumin", serif;
+  font-weight: 800;
+  font-style: normal;
+  padding: 0.5rem 2rem;
+}
+
+.map-card-info p {
+  text-align: center;
+  overflow-wrap: anywhere;
+  padding-top: 0.2rem;
+}
+
+.map-card-info button {
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 0.3rem;
+  margin-top: 1rem;
+  background-color: inherit;
+  font-size: 1rem;
+  font-family: "Kaisei Tokumin", serif;
+  font-weight: 800;
+  font-style: normal;
+  transition: all 0.3s ease-in-out;
+}
+
+.map-card-info button:hover {
+  border-bottom: 1.5px solid grey;
+  color: grey;
+  padding-bottom: 1rem;
+  scale: 1.2;
+  transition: all 0.3s ease-in-out;
 }
 
 
