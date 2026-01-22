@@ -42,22 +42,6 @@ export default function CityMap() {
         if (attrib?.hasAttribute("open")) {
             attrib.removeAttribute("open");
         }
-        if (
-          Array.isArray(bbox) &&
-          bbox.length === 4 &&
-          bbox.every(Number.isFinite)){
-            map.fitBounds(
-              [
-                [bbox[0], bbox[1]],
-                [bbox[2], bbox[3]],
-              ],
-              {
-                padding: 40,
-                maxZoom: isDesktop ? 13 : 12,
-                duration: 800,
-              }
-            );
-        }
     });
 
     return () => {
