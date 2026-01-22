@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import {useNavigate} from "react-router-dom";
 
 export default function CardSwiper() {
-    const {poiPlaces, isDesktop, likedPois, setLikedPois, index, setIndex} = useContext(CityContext);
+    const {poiPlaces, isDesktop, setLikedPois, index, setIndex} = useContext(CityContext);
     const navigate = useNavigate();
     const places = poiPlaces.places;
 
