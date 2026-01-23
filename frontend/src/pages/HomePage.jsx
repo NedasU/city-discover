@@ -2,8 +2,7 @@ import "../styles/global.css"
 import Navbar from "../components/Navbar.jsx"
 import InputBar from "../components/InputBar.jsx"
 import FallingCities from "../components/FallingCities.jsx"
-import { useState } from "react";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { CityContext } from "../context/cityContext.jsx";
 import { useLocation, useNavigate } from "react-router-dom";
 
