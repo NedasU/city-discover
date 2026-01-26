@@ -51,6 +51,10 @@ Get your key here: https://www.geoapify.com/
 
 ### Data Flow
 
+```javascript
+User → React → Express API → Geoapify → Express → React → Map
+```
+
 1. User enters a city of their choice
 <img width="1920" height="922 alt="Homepage" src="https://github.com/user-attachments/assets/a029e66d-dc30-4ded-aa4e-fc90cefaecf1" />
 
@@ -94,6 +98,7 @@ Get your key here: https://www.geoapify.com/
 13. A list of likedPois is also present for the user to scroll through.
 <img width="1920" height="919" alt="Map Page with marked liked PoIs on the interactive map" src="https://github.com/user-attachments/assets/e0868e3f-14e4-4d71-b4a8-df52e3a1f66f" />
 
+
 ### Running Locally
 
 All dependencies must be installed before running the program.
@@ -111,6 +116,14 @@ cd frontend
 npm install
 npm run dev
 ```
+
+## Technical Challenges
+
+- Implemented smooth Tinder-style swipe interactions using Framer Motion.
+- Designed global state management with React Context to sync swipe actions, saved POIs, and map rendering.
+- Built dynamic map visualisation using MapLibre GL with real-time marker updates.
+- Designed responsive animation logic for “Falling Cities” with randomised motion patterns.
+
 
 ### Future Improvements
 This is a fairly large project and although a lot of its features are implemented, there is still much work to do,
