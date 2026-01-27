@@ -95,6 +95,29 @@ app.get("/api/places", async (req, res) => {
 })
 
 
+app.get("/api/geocode/reverse", async (req, res) => {
+    const { geo_lat, geo_lon } = req.query;
+    console.log(geo_lat, geo_lon)
+    try{
+        const reverse_geocode_resp = await fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${geo_lat}&lon=${geo_lon}&apiKey=${process.env.GEOAPIFY_KEY}`)
+        const reverse_geocode = await reverse_geocode_resp.json();
+
+        if (!reverse_geocode.features?.length) {
+            return res.status(404).json({ error: "No location found" });
+        }
+        const { city, country, place_id} = reverse_geocode.features[0].properties;
+
+        res.json({
+            city,
+            country,
+            place_id,
+        })
+    } catch (err){
+        console.log(err);
+        res.status(500).json({error: err});
+    }
+})
+
 app.listen(PORT, ()=>{
     console.log(`Server listening on http://localhost:${PORT}`);
 });
