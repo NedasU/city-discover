@@ -3,6 +3,8 @@ import cors from "cors";
 import "dotenv/config";
 import path from "path";
 import { fileURLToPath} from "url";
+import {resolveImagesWithLimit} from "./services/imageResolver.js";
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -77,16 +79,18 @@ app.get("/api/places", async (req, res) => {
         const data = await response.json();
 
         const places = data.features.map((place_info) => ({
-                name: place_info.properties.name || "Unnamed place",
+                name: place_info.properties.name ?? "Unnamed Place",
                 lon: place_info.properties.lon,
                 lat: place_info.properties.lat,
                 address: place_info.properties.formatted,
                 categories: place_info.properties.categories ?? [],
                 place_id: place_info.properties.place_id,
-                img_src: place_info.properties.wiki_and_media?.image ?? "/images/placeholder.jpg"
+                img_src: "/images/placeholder.jpg"
 
         }));
-        res.json({ places });
+
+        const updated_places = await resolveImagesWithLimit(places, 5);
+        res.json({ places: updated_places });
 
     } catch (err) {
         console.error(err)
@@ -117,6 +121,8 @@ app.get("/api/geocode/reverse", async (req, res) => {
         res.status(500).json({error: err});
     }
 })
+
+
 
 app.listen(PORT, ()=>{
     console.log(`Server listening on http://localhost:${PORT}`);

@@ -86,10 +86,10 @@ export default function HomePage() {
                 console.log(err)
             }
         }
-        if (geoLocation.loading === false && geoLocation.error === null && !(cityInfo)) {
+        if (geoLocation.loading === false && geoLocation.error === null && !(cityInfo) && !loading) {
             reverse_geocode_call();
         }
-    }, [geoLocation])
+    }, [geoLocation, loading])
 
     return(
         <div className="whole-container">
